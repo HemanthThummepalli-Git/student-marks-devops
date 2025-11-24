@@ -8,7 +8,7 @@ pipeline {
     DOCKER_CRED_ID = "dockerhub-creds"
   }
 
-  options { timestamps(); disableConcurrentBuilds(); ansiColor('xterm') }
+  options { timestamps() }
 
   stages {
     stage('Checkout') {
