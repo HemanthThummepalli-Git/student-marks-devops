@@ -61,7 +61,7 @@ pipeline {
 
     stage('Integration Tests (Newman)') {
       steps {
-        // determine service URL (works for minikube or loadbalancer)
+       
         sh '''
           # attempt to get load balancer IP, fall back to minikube service url
           SERVICE_IP=$(kubectl -n ${KUBE_NAMESPACE} get svc student-marks-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}' 2>/dev/null || true)
