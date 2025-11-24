@@ -1,4 +1,3 @@
-// src/app.js
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -18,7 +17,6 @@ app.get('/health', (req, res) => res.json({ status: 'ok' }));
 app.use('/api/marks', marksRouter);
 
 
-// simple error handler
 app.use((err, req, res, next) => {
 console.error(err);
 res.status(500).json({ error: 'Internal Server Error' });
