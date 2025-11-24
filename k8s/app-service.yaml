@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: student-marks-service
+  namespace: student-marks
+spec:
+  selector:
+    app: student-marks-app
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer

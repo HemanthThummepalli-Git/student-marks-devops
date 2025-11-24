@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-marks-app
+  namespace: student-marks
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-marks-app
+  template:
+    metadata:
+      labels:
+        app: student-marks-app
+    spec:
+      containers:
+        - name: student-marks-app
+          image: hemanththummepalli/student-marks-backend:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MONGO_URI
+              value: "mongodb://mongo.student-marks.svc.cluster.local:27017/studentmarks"
+            - name: PORT
+              value: "3000"
+          ports:
+            - containerPort: 3000
